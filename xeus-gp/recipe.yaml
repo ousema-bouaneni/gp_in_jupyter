@@ -1,0 +1,37 @@
+context:
+  name: xeus-gp
+  version: 0.1.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pari.math.u-bordeaux.fr/pub/pari/XEUS-GP/xeus-gp-${{version}}.tar.gz
+  sha256: efeb44c9d4961b6b40d673fbe77d280d3b493dcfbb1d69cf7b60aaa5a9a93fe7
+  md5: f241e1703006ce5caf6d9aa4cdf811b1
+
+build:
+  number: 0
+  skip:
+    - win
+    - osx
+
+requirements:
+  build:
+    - ${{ compiler("cxx") }}
+    - cmake >= 3.10
+    - make
+  host:
+    - pari >= 2.17
+    - xeus >= 5.0
+    - xeus-zmq >= 3.0
+    - xtl >= 0.7.0
+    - nlohmann_json >= 3.12
+    - libuuid
+
+about:
+  homepage: https://pari.math.u-bordeaux.fr
+  summary: xeus-gp
+  description: Xeus-GP is a Jupyter kernel for PARI/GP based on xeus.
+  license: GPL-2.0-or-later
