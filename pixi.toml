@@ -1,0 +1,14 @@
+[workspace]
+authors = ["ousema-bouaneni <ousema.bouaneni@polytechnique.edu>"]
+channels = ["conda-forge"]
+name = "gp_in_jupyter"
+platforms = ["linux-64"]
+version = "0.1.0"
+preview = ["pixi-build"]
+
+[tasks]
+lab = {cmd = 'jupyter lab'}
+
+[dependencies]
+jupyterlab = ">=4.4.6,<5"
+xeus-gp = {path = "./xeus-gp"}
